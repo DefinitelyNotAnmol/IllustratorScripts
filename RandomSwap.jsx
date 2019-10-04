@@ -7,16 +7,10 @@ if(doc.selection.length>0)
 		for (i = 0; i < doc.selection.length; i++) {
 			var iObj = doc.selection[i];
 			
-			var iObjL= iObj.left;
-			var iObjW = iObj.width;
-			var iObjT = iObj.top;
-			var iObjH = iObj.height; 
-			var currDotx = iObjL; //+ (iObjW/2);
-			var currDoty = iObjT;//+ (iObjH/2);
 			var currDot=doc.symbolItems.add(sym[Math.floor(Math.random() * sym.length)]);
-			currDot.height = iObjH;
+			currDot.height = iObj.height;
 			currDot.width = iObj.width;
-			currDot.position=[currDotx,currDoty];
+			currDot.position=[iObj.left, iObj.top];
 			iObj.remove();
 		}
 	}
