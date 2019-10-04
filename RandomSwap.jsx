@@ -4,7 +4,7 @@ var sym = doc.symbols;
 if(doc.selection.length>0)
 {
 	try{
-		for (i = 0; i < doc.selection.length; i++) {
+		for (i = doc.selection.length-1; i >= 0; i--) {
 			var iObj = doc.selection[i];
 			
 			var currDot=doc.symbolItems.add(sym[Math.floor(Math.random() * sym.length)]);
