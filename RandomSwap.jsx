@@ -4,8 +4,7 @@ var sym = doc.symbols;
 if(doc.selection.length>0)
 {
 	try{
-		for(i=doc.selection.length-1;i>=0;i--)
-		{
+		for (i = 0; i < doc.selection.length; i++) {
 			var iObj = doc.selection[i];
 			
 			var iObjL= iObj.left;
@@ -21,12 +20,10 @@ if(doc.selection.length>0)
 			iObj.remove();
 		}
 	}
-	catch(e)
-	{
+	catch(e) {
 		alert("Unknown error occured.");
 	}
 }
-else
-{
+else {
 	alert("There is no selection");
 }
