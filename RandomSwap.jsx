@@ -1,17 +1,16 @@
-var doc=app.activeDocument;
-var sym = doc.symbols;  
+var artboard = app.activeDocument;
+var symbols = artboard.symbols;  
 
-if(doc.selection.length>0)
-{
-	try{
-		for (i = doc.selection.length-1; i >= 0; i--) {
-			var iObj = doc.selection[i];
+if(artboard.selection.length > 0) {
+	try {
+		for (i = artboard.selection.length-1; i >= 0; i--) {
+			var selectedObject = artboard.selection[i];
 			
-			var currDot=doc.symbolItems.add(sym[Math.floor(Math.random() * sym.length)]);
-			currDot.height = iObj.height;
-			currDot.width = iObj.width;
-			currDot.position=[iObj.left, iObj.top];
-			iObj.remove();
+			var symbol = artboard.symbolItems.add(symbols[Math.floor(Math.random() * symbols.length)]);
+			symbol.height = selectedObject.height;
+			symbol.width = selectedObject.width;
+			symbol.position = [selectedObject.left, selectedObject.top];
+			selectedObject.remove();
 		}
 	}
 	catch(e) {
