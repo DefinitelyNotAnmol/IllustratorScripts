@@ -1,20 +1,12 @@
+var artboard = app.activeDocument;  
+var symbols = artboard.layers;    
 
-var doc = app.activeDocument;  
-  
-var lays = doc.layers;  
-  
-for ( var i = 0; i &lt; lays.length; i++ ) {  
-  
-          var grp = lays[i].groupItems.add();  
-  
-          var items = lays[i].pageItems;  
-  
-          for ( var j = items.length-1; j > 0; j-- ) {  
-  
-                   // items[j].move( grp, ElementPlacement.PLACEATBEGINNING );  
-                 items[j].moveToBeginning( grp );  
-          };  
-  
-          doc.symbols.add( grp );  
-  
+for (var i = 0; i < symbols.length; i++) {  
+    var symbol = symbols[i].groupItems.add();  
+    var items = symbols[i].pageItems;  
+    for (var j = items.length-1; j > 0; j--) {  
+        items[j].moveToBeginning(symbol);  
+    };  
+
+    artboard.symbols.add(symbol);
 };  
